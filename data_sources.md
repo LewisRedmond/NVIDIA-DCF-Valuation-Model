@@ -20,7 +20,7 @@
 | Item | Value | Source |
 |---|---|---|
 | Equity Risk Premium | 5.0% | Damodaran Online (NYU Stern) |
-| Semiconductor Industry Beta | — | Damodaran Online, industry betas dataset |
+| Semiconductor Industry Beta | 1.1 | Damodaran Online, industry betas dataset |
 | Exit Multiple Comparables | AMD, Broadcom, Qualcomm | Bloomberg consensus |
 
 ## Macro Assumptions
