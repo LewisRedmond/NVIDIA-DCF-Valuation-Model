@@ -1,54 +1,64 @@
 # Methodology
 
 ## 1. Forecast Period and Structure
-- Why 5 years (FY2027E–FY2031E) was chosen as the explicit forecast horizon
-- Note on the Capex/D&A ratio (5.5x in FY2027E, 1.5x by FY2031E) and why this 
-  suggests steady-state may not be fully reached within 5 years — an explicit 
-  limitation, not an oversight
+
+The model uses a 5-year explicit forecast period (FY2027E–FY2031E), anchored to FY2026A reported financials. Five years was chosen as a balance between capturing enough of NVIDIA's current AI infrastructure investment cycle to observe margin and reinvestment trends stabilising while avoiding the false precision of projecting granular line items a decade or more into the future.
+
+One limitation surfaced directly by the model itself: the Capex/D&A ratio starts at 5.5x in FY2027E and narrows to 1.5x by FY2031E as the PP&E base grows. In a true steady state, this ratio should approach 1.0x as Capex roughly replaces what is depreciated each year. The fact that the ratio is still meaningfully above 1.0x at the end of the explicit forecast period suggests NVIDIA's current reinvestment cycle has not fully normalised within this 5-year window. This is treated as an explicit, disclosed limitation rather than an error: extending the forecast period further would reduce this distortion but at the cost of increasing reliance on even more uncertain long-range assumptions.
 
 ## 2. Revenue Build
-- Top-down vs bottom-up rationale: explain you used a top-down growth-rate fade 
-  (10%→9%→8%→6.5%→5%) rather than segment-level bottom-up, and why (data 
-  availability at the public-filing level)
-- Bear/Base/Bull construction logic
+
+The model uses a top-down rationale for the growth-rate fade rather than segment-level bottom-up. This is based on consensus revenue estimates of 10% in FY2027E, reflecting continued data centre demand, with a growth deceleration assumption based on peer semiconductor revenue CAGR of approximately 8-10%. The eventual fade towards the terminal growth rate reflects the law of large numbers acting on the $215B FY2026A revenue base — a company of this size cannot sustain the growth rates typical of a smaller competitor indefinitely, regardless of how strong end-market demand remains.
+
+A bottom-up, segment-level build (separating Data Centre, Gaming, Professional Visualization, and Automotive revenue streams) would in principle be more rigorous, since it would let each segment's growth assumption reflect its own demand dynamics rather than blending them into a single company-wide rate. This was not pursued here primarily due to the limited segment-level forward guidance disclosed in public filings — NVIDIA's 10-K provides historical segment splits but not segment-level forward guidance with enough granularity to build defensible individual growth paths, making a top-down approach the more honestly-supportable method given the data actually available.
+
+The logic behind the Bear/Base/Bull construction reflects NVIDIA operating in a structurally growing, diversified sector (AI infrastructure spans hyperscalers, sovereign AI initiatives, and enterprise adoption, rather than a single end market), which should make the business somewhat less exposed to a single demand shock than a narrower semiconductor peer. On this basis, the Bear case is set at a 6%–2.5% growth range across the forecast period (still firmly positive, reflecting a slowdown rather than a contraction) and the Bull case at 14%–6%, with Base sitting between the two at 10%–5%.
 
 ## 3. Margin Assumptions
-- Why gross margin reverts to 75% (matches FY2025A actual) rather than holding 
-  flat at FY2026A's depressed 71.1%
-- SG&A/R&D held as flat % of revenue — acknowledge this likely understates 
-  operating leverage NVIDIA would realistically achieve at scale
+
+Gross margin is assumed to reach 75% across the forecast period, reflecting the continued mix shift toward NVIDIA's Data Centre and AI accelerator products, where the company holds a dominant position as the principal provider of accelerated computing systems for AI training and inference. Demand for these systems is structurally growing due to enterprise and hyperscaler AI adoption, and I anchored the 75% assumption directly to FY2025A's actual gross margin of 75.0%, treating FY2026A's lower reported margin (71.1%) as a temporary dip rather than the new baseline — FY2026A's compression was driven by product mix during the Blackwell ramp rather than a structural deterioration in NVIDIA's pricing power.
+
+SG&A and R&D are held as a flat percentage of revenue — 3% and 9% respectively — as these figures closely track the historical averages observed across FY2022A–FY2026A. I recognise this likely understates the operating leverage NVIDIA would realistically achieve as it continues to scale, since a meaningful portion of SG&A in particular tends to be fixed or semi-fixed rather than scaling linearly with revenue. Holding these flat was a deliberate simplification rather than an attempt to model true operating leverage, and it means the model's EBITDA margin (63.0% across the forecast) is arguably conservative relative to what NVIDIA could plausibly achieve if SG&A efficiency continues to improve at scale.
 
 ## 4. Working Capital
-- DSO/DIO/DPO methodology: derived from FY2026A actuals (65/125/57 days), 
-  held flat rather than assuming further efficiency gains
-- Explain why DIO is unusually high for a tech company (GPU supply chain buffer 
-  stock, not typical SaaS-style working capital profile)
+
+The model's DSO, DIO, and DPO assumptions are all derived directly from FY2026A actuals (65, 125, and 57 days respectively) and held flat across the forecast period rather than assuming further efficiency gains. These figures were calculated as AR/Revenue, Inventory/COGS, and AP/COGS respectively, each annualised over 365 days.
+
+Holding these ratios flat reflects an absence of clear evidence pointing toward either further efficiency gains or deterioration: NVIDIA's recent working capital trend has been driven primarily by the scale and speed of its revenue growth rather than by any visible structural shift in payment terms, collection practices, or supplier negotiating power. Rather than assume continued improvement (which would be optimistic and difficult to substantiate from the filings) or assume deterioration from increased organisational complexity at scale, flat FY2026A-derived ratios were treated as the more defensible, neutral assumption.
+
+The high DIO assumption of 125 days specifically reflects NVIDIA's position as a GPU supplier operating in a supply-constrained component market. NVIDIA's inventory levels are shaped by long procurement lead times for specialised components (notably advanced packaging and HBM memory), periodic component shortages, and minimum order quantities imposed by foundry partners — all factors that inflate average inventory holding periods well above what would be typical for a company with NVIDIA's revenue scale and asset-light fabless model. This is a materially different working capital profile from a typical software or platform business, and the model's elevated DIO assumption is intended to reflect that reality rather than being treated as a modelling anomaly to be corrected toward a lower "tech company" benchmark.
 
 ## 5. PP&E and Reinvestment
-- Capex as % of revenue (6.5%) vs. the historical depreciation-implied rate (45%) 
-  vs. the conservative 27% rate actually used — explain the judgment call
-- The Capex/D&A ratio finding and what it implies about terminal year FCF quality
+
+Capital expenditure is projected at 6.5% of revenue across the forecast period, based on FY2026A's actual Capex of $6,042M (2.8% of revenue) scaled up to reflect NVIDIA's stated and observable acceleration in AI infrastructure investment — manufacturing capacity commitments, advanced packaging capacity, and data centre build-out are all consuming meaningfully more capital than the historical 5-year average would suggest, and 6.5% was chosen as a forward-looking estimate of this step-change rather than a simple extrapolation of historical Capex intensity.
+
+The depreciation rate required more judgement. FY2026A's reported D&A of $2,843M, divided by beginning-of-year net PP&E of $6,283M, implies an effective depreciation rate of approximately 45% — a figure that would imply an unrealistically short average asset life if applied directly across the forecast period, given that NVIDIA's PP&E base is rapidly expanding with newer, longer-lived assets (data centre infrastructure, packaging and test equipment) that should depreciate more slowly than the blended historical rate suggests. I used 27% instead, a deliberately conservative compromise between the historically-implied rate and a rate that would assume meaningfully longer asset lives going forward. This judgement call has a direct and visible consequence: it is the reason the Capex/D&A ratio referenced in Section 1 sits as high as 5.5x in FY2027E, since a lower assumed depreciation rate means a much smaller D&A figure relative to the (much larger) Capex figure in the same year.
+
+The practical implication is that terminal year free cash flow may still be carrying a meaningful element of growth-stage reinvestment rather than pure maintenance Capex, even by FY2031E. This is not treated as an error in the model, but it is a genuine source of uncertainty in the Terminal Value calculation, since the Gordon Growth method implicitly assumes the final forecast year's FCF is representative of a steady, sustainable run-rate.
 
 ## 6. WACC Construction
-- Full CAPM walkthrough: Rf, ERP, beta sourcing
-- Why debt is economically irrelevant to WACC at NVIDIA's capital structure 
-  (0.26% of total capital) — explain this is a structural feature of mega-cap 
-  tech balance sheets, not a modelling simplification
+
+The Cost of Equity is built using the Capital Asset Pricing Model: Re = Rf + β × ERP. The risk-free rate (4.0%) is taken from the 10-Year US Treasury yield as of the valuation date, chosen over a shorter-duration government bond because the duration of a DCF's cash flows — spanning both the explicit forecast period and an effectively infinite terminal value — is better matched to a longer-dated instrument. The Equity Risk Premium (5.0%) is sourced from Damodaran's published US market estimates rather than derived independently, reflecting standard practice given the genuine difficulty of estimating a forward-looking ERP from first principles. Beta (1.10) is similarly sourced from Damodaran's industry beta dataset for the semiconductor sector, relevered to reflect NVIDIA's specific capital structure rather than used as a raw, unadjusted industry average.
+
+The After-Tax Cost of Debt (4.125%, derived from a 5.5% pre-tax rate and NVIDIA's 25% assumed tax rate) and the resulting WACC calculation reveal something worth stating explicitly: debt is almost entirely irrelevant to NVIDIA's WACC. With a market capitalisation of approximately $3.3 trillion against total debt of only $8.5 billion, NVIDIA's capital structure weights sit at roughly 99.7% equity and 0.3% debt. This is not a modelling simplification or a shortcut — it is a direct, structural feature of how mega-cap technology companies are typically financed, where balance sheet debt is often maintained for liquidity or tax efficiency reasons rather than as a meaningful source of capital. The practical consequence is that NVIDIA's WACC (9.49%) is, to a close approximation, simply its Cost of Equity (9.50%) — meaning the discount rate used throughout this model is driven almost entirely by the risk-free rate, ERP, and beta, and is essentially insensitive to assumptions about NVIDIA's cost or quantity of debt.
 
 ## 7. Terminal Value — Dual Method Cross-Check
-- Why both perpetuity growth and exit multiple are calculated
-- The implied-growth back-solve check (3.40% from the 11x exit multiple) and 
-  what exceeding the 3% ceiling tells you about multiple assumption tension
 
-## 8. Known Simplifications (Be Explicit)
-- Debt held flat (no dynamic paydown/cash sweep)
-- Dividends not projected forward despite historical precedent
-- SBC added back without separate dilution adjustment
-- Several balance sheet lines (leases, intangibles, goodwill, APIC, AOCI) held flat
+Terminal Value is calculated using both the Perpetuity Growth method and the Exit Multiple method, rather than relying on a single approach, because each method anchors to a different source of evidence and carries different risks of error. The Perpetuity Growth method is grounded in the company's own projected fundamentals — it asks what NVIDIA's final-year free cash flow is worth if it grows at a constant rate forever — but is highly sensitive to the chosen growth rate and discount rate, and the growth rate in particular is inherently a judgement call about the long-run economy rather than about NVIDIA specifically. The Exit Multiple method instead anchors to observable market pricing of comparable semiconductor businesses (AMD, Broadcom, Qualcomm), which grounds the valuation in real transaction evidence but implicitly assumes that today's market multiples remain a reasonable benchmark for how NVIDIA, or comparable businesses, will be priced five years from now — a assumption that carries its own risk if current semiconductor multiples are cyclically elevated or depressed.
+
+Using both methods allows for a useful internal consistency check: solving backwards from the Exit Multiple method's Terminal Value (using an 11x EV/EBITDA multiple) for the perpetuity growth rate that would be required to produce the same value yields an implied growth rate of 3.40%. This exceeds the 2.5% terminal growth rate used directly in the Perpetuity Growth method, and also sits above the approximately 3% ceiling generally considered defensible for a developed-market terminal growth assumption tied to long-run nominal GDP growth. This is not treated as evidence that either method is "wrong" — rather, it is a diagnostic signal that the two methods are in mild tension with one another, implying that the 11x exit multiple assumption is, on a like-for-like basis, somewhat more optimistic than the 2.5% perpetuity growth assumption. Flagging this tension explicitly, rather than presenting only the more favourable of the two outputs, was a deliberate choice to preserve the model's internal consistency and credibility.
+
+## 8. Known Simplifications
+
+Several elements of the model were deliberately simplified rather than fully dynamically modelled, and are disclosed here rather than left implicit:
+
+- **Debt is held flat** across the forecast period, with no dynamic cash sweep or paydown mechanism modelled. Given debt's near-total irrelevance to WACC (Section 6), this simplification has minimal impact on the valuation output, but it does mean the model does not capture any interest expense changes that would result from NVIDIA actively managing its balance sheet.
+- **Dividends are not projected forward** despite NVIDIA having paid dividends in every historical year shown. This was a scope decision to keep the Cash Flow Statement build focused on the elements that directly affect Enterprise Value (dividends do not affect FCFF or EV), though it does mean the model's projected cash balance accumulates somewhat faster than would likely occur in practice.
+- **Stock-based compensation is added back to free cash flow as a non-cash item** without a corresponding adjustment to the diluted share count to reflect the dilution SBC creates over time. This is a simplification rather than an oversight: a more complete treatment would either treat SBC as a real economic cost (not added back) or explicitly model the resulting share count growth, and the model's current treatment likely modestly overstates per-share value as a result.
+- **Several Balance Sheet lines are held flat** across the forecast period, including operating lease assets, intangible assets, goodwill, additional paid-in capital, and accumulated other comprehensive loss. These items either lack a clear operational driver suitable for this model's scope or would require assumptions about future M&A and capital markets activity that fall outside a standalone organic DCF.
 
 ## 9. Sensitivity Methodology
-- Explain the WACC × terminal growth Data Table mechanism
-- Note the override-cell architecture (Sensitivity!K2/K3) required to make 
-  Excel Data Tables work around cross-sheet formula limitations — this is 
-  worth including because it demonstrates you understand a genuine Excel 
-  technical constraint, not just DCF theory
+
+The core sensitivity analysis varies WACC and Terminal Growth Rate simultaneously across a 5×5 grid using Excel's two-variable Data Table function, producing 25 distinct implied share price outputs from a single base-case model. This was chosen over single-variable sensitivity because WACC and terminal growth interact directly within the Perpetuity Growth formula — examining either in isolation would understate how sensitive the valuation actually is to the combination of the two.
+
+Implementing this required a specific structural workaround. Excel's Data Table function requires both the row-input and column-input cells to reside on the same worksheet as the table itself, but WACC and Terminal Growth Rate are calculated values living on separate tabs (WACC and Assumptions respectively) elsewhere in the model. To resolve this, two override cells were created directly on the Sensitivity tab (K2 for WACC, K3 for Terminal Growth), and the WACC tab and Terminal Value tab were both modified to read from these override cells rather than calculating independently. In the base case, these override cells are set to match the model's actual calculated values, so the override mechanism is invisible to the rest of the model — but it allows the Data Table to temporarily substitute alternative values into K2 and K3 and have those changes propagate correctly through the WACC, Terminal Value, and DCF tabs to produce each of the 25 grid outputs. This structural detail is worth documenting because it reflects a genuine Excel technical constraint that had to be deliberately worked around, rather than simply applying DCF theory to a spreadsheet that handles sensitivity analysis natively.
