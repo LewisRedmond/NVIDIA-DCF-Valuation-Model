@@ -4,10 +4,10 @@
 | Period | Source | Filed |
 |---|---|---|
 | FY2022 10-K | SEC EDGAR | [link] |
-| FY2023 10-K | SEC EDGAR | [link] |
-| FY2024 10-K | SEC EDGAR | [link] |
+| FY2023 10-K | SEC EDGAR | [https://s201.q4cdn.com/141608511/files/doc_financials/2023/q4/4e9abe7b-fdc7-4cd2-8487-dc3a99f30e98.pdf] |
+| FY2024 10-K | SEC EDGAR | https://s201.q4cdn.com/141608511/files/doc_financials/2024/q4/1cbe8fe7-e08a-46e3-8dcc-b429fc06c1a4.pdf |
 | FY2025 10-K | SEC EDGAR | [link] |
-| FY2026 10-K | SEC EDGAR | [link] |
+| FY2026 10-K | SEC EDGAR | https://s201.q4cdn.com/141608511/files/doc_financials/2026/q4/10K-NVDA.pdf |
 
 ## Market Data
 | Item | Value | Source | As of |
